@@ -134,7 +134,12 @@ $apartments = $stmt->fetchAll();
             <div class="apartment-list-item glass border-0 mb-4 fade-in">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-3">
-                        <div class="apartment-image position-relative" style="height: 200px; background: var(--gradient); border-radius: 15px;">
+                        <div class="apartment-image position-relative" style="height: 200px; border-radius: 15px; overflow: hidden;">
+                            <?php if ($apartment['images']): ?>
+                                <img src="assets/img/<?= $apartment['images'] ?>" alt="<?= $apartment['title'] ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                            <?php else: ?>
+                                <div style="width: 100%; height: 100%; background: var(--gradient);"></div>
+                            <?php endif; ?>
                             <div class="position-absolute top-0 end-0 m-3">
                                 <span class="badge bg-success">
                                     <i class="fas fa-check-circle"></i> Available

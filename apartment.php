@@ -84,7 +84,12 @@ $amenities = explode(',', $apartment['amenities']);
     <div class="row g-4">
         <div class="col-lg-8">
             <div class="card glass border-0 mb-4">
-                <div class="card-img-top position-relative" style="height: 400px; background: var(--gradient);">
+                <div class="card-img-top position-relative" style="height: 400px; overflow: hidden;">
+                    <?php if ($apartment['images']): ?>
+                        <img src="assets/img/<?= $apartment['images'] ?>" alt="<?= $apartment['title'] ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                    <?php else: ?>
+                        <div style="width: 100%; height: 100%; background: var(--gradient);"></div>
+                    <?php endif; ?>
                     <div class="position-absolute top-0 end-0 m-3">
                         <span class="badge bg-success fs-6">
                             <i class="fas fa-check-circle"></i> Available
