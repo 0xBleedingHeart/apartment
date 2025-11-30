@@ -54,9 +54,9 @@ $apartments = $stmt->fetchAll();
             <div class="navbar-nav ms-auto">
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <span class="navbar-text me-3">
-                        <i class="fas fa-user-circle"></i> Welcome, <?= $_SESSION['username'] ?>
+                        <i class="fas fa-user-circle"></i> Welcome, <?= $_SESSION['username'] ?? 'User' ?>
                     </span>
-                    <?php if ($_SESSION['role'] === 'admin'): ?>
+                    <?php if (($_SESSION['role'] ?? '') === 'admin'): ?>
                         <a class="nav-link" href="admin/dashboard.php">
                             <i class="fas fa-tachometer-alt"></i> Admin Panel
                         </a>
