@@ -53,7 +53,7 @@ $amenities = explode(',', $apartment['amenities']);
         <div class="navbar-nav ms-auto">
             <?php if (isset($_SESSION['user_id'])): ?>
                 <span class="navbar-text me-3">
-                    <i class="fas fa-user-circle"></i> Welcome, <?= $_SESSION['username'] ?>
+                    <i class="fas fa-user-circle"></i> Welcome, <?= $_SESSION['username'] ?? $_SESSION['first_name'] ?? 'User' ?>
                 </span>
                 <a class="nav-link" href="customer/reservations.php">
                     <i class="fas fa-calendar-check"></i> My Reservations
